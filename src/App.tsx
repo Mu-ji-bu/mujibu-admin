@@ -1,8 +1,16 @@
+import { Routes, Route } from 'react-router-dom';
+import Home from './routes/home.components';
+import LogIn from './routes/login.components';
+import Navigation from './routes/navigation.component';
+
 const App = () => {
   return (
-    <div className="App">
-      <h1>木質部，募質部 ADMIN。</h1>
-    </div>
+    <Routes>
+      <Route path="/" element={<Navigation />}>
+        <Route index element={<Home />} />
+        <Route path="login" element={<LogIn />} />
+      </Route>
+    </Routes>
   );
 };
 
