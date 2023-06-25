@@ -1,18 +1,43 @@
+import { useEffect } from 'react';
+
 import { Button } from '@mui/material';
-import { signInWithGooglePopUp } from '../libraries/utils/firebase.utils';
+import {
+  auth,
+  signInWithGooglePopUp,
+  createUserDocumentFromAuth,
+  signInWithGoogleRedirect,
+} from '../libraries/utils/firebase.utils';
+import { getRedirectResult } from 'firebase/auth';
+import SignUpForm from '../components/sign-up-form/sign-up-form.component';
 
 const LogIn = () => {
+  // useEffect(() => {
+  //   const getUser = async () => {
+  //     const response = await getRedirectResult(auth);
+  //     console.log(response);
+  //     if (response) {
+  //       const { user } = response;
+  //       const userDocRef = await createUserDocumentFromAuth(user);
+  //     }
+  //   };
+  //   getUser();
+  // }, []);
+
   const logGoogleUser = async () => {
-    const response = await signInWithGooglePopUp();
-    console.log(response);
+    const { user } = await signInWithGooglePopUp();
+    const userDocRef = await createUserDocumentFromAuth(user);
   };
+
   return (
     <>
-      <div>Sign In!</div>
+      <h1>登入頁</h1>
       <Button variant="contained" size="small" onClick={logGoogleUser}>
-        small按鈕
+        Popup
       </Button>
-      <button onClick={logGoogleUser}>Sign in with Google!</button>
+      <SignUpForm />
+      {/* <Button variant="contained" size="small" onClick={signInWithGoogleRedirect}>
+        redirect
+      </Button> */}
     </>
   );
 };
