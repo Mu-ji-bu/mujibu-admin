@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from '../../libraries/utils/firebase.utils';
 import { UserCredential } from 'firebase/auth';
+import FormInput from '../form-input/form-input';
 
 const defaultFormFields = {
   name: '',
@@ -9,7 +10,7 @@ const defaultFormFields = {
   confirmPassword: '',
 };
 
-const SignUpForm = () => {
+const SignInForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { name, email, password, confirmPassword } = formFields;
 
@@ -45,19 +46,24 @@ const SignUpForm = () => {
 
   return (
     <div>
-      <h1>Sign up with your email and password</h1>
+      <h2>Sign up with your email and password</h2>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="name">名稱</label>
-        <input type="text" name="name" id="name" required onChange={handleChange} value={name} />
+        <FormInput label="名稱" type="text" name="name" id="name" required onChange={handleChange} value={name} />
 
-        <label htmlFor="email">信箱</label>
-        <input type="email" name="email" id="email" required onChange={handleChange} value={email} />
+        <FormInput label="信箱" type="email" name="email" id="email" required onChange={handleChange} value={email} />
 
-        <label htmlFor="password">密碼</label>
-        <input type="password" name="password" id="password" required onChange={handleChange} value={password} />
+        <FormInput
+          label="密碼"
+          type="password"
+          name="password"
+          id="password"
+          required
+          onChange={handleChange}
+          value={password}
+        />
 
-        <label htmlFor="confirmPassword">確認密碼</label>
-        <input
+        <FormInput
+          label="確認密碼"
           type="password"
           name="confirmPassword"
           id="confirmPassword"
@@ -72,4 +78,4 @@ const SignUpForm = () => {
   );
 };
 
-export default SignUpForm;
+export default SignInForm;

@@ -9,6 +9,7 @@ import {
 } from '../libraries/utils/firebase.utils';
 import { getRedirectResult } from 'firebase/auth';
 import SignUpForm from '../components/sign-up-form/sign-up-form.component';
+import SignInForm from '../components/sign-in-form/sign-in-form.component';
 
 const LogIn = () => {
   // useEffect(() => {
@@ -25,20 +26,25 @@ const LogIn = () => {
 
   const logGoogleUser = async () => {
     const { user } = await signInWithGooglePopUp();
-    const userDocRef = await createUserDocumentFromAuth(user);
+    await createUserDocumentFromAuth(user);
   };
 
   return (
-    <>
+    <main className="flex flex-col items-center">
       <h1>登入頁</h1>
-      <Button variant="contained" size="small" onClick={logGoogleUser}>
+      {/* <Button variant="contained" size="small" onClick={logGoogleUser}>
         Popup
       </Button>
-      <SignUpForm />
+      <div className="w-1/2">
+        <SignUpForm />
+      </div> */}
+      <div className="w-1/2">
+        <SignInForm />
+      </div>
       {/* <Button variant="contained" size="small" onClick={signInWithGoogleRedirect}>
         redirect
       </Button> */}
-    </>
+    </main>
   );
 };
 

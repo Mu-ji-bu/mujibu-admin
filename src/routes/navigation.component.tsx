@@ -1,8 +1,16 @@
 import { Outlet, Link } from 'react-router-dom';
-import { Component, useRef } from 'react';
+import { Component, useRef, useContext } from 'react';
+import { UserContext } from '../contexts/user.context';
+import { signOutUser } from '../libraries/utils/firebase.utils';
 
 const Navigation = () => {
   const headerRef = useRef(null);
+  const { currentUser, setCurrentUser } = useContext(UserContext);
+
+  const signOutHandler = async () => {
+    await signOutUser();
+    setCurrentUser(null);
+  };
   return (
     <>
       <header ref={headerRef} className="border-0 border-b border-solid border-secondary-10">
@@ -13,11 +21,17 @@ const Navigation = () => {
                 <img src="/logo@2x.png" alt="募質部" />
               </Link>
             </div>
-            <div className="links-container">
-              <Link className="nav-link" to="/login">
-                登入
-              </Link>
-            </div>
+            {currentUser ? (
+              <span className="" onClick={signOutHandler}>
+                登出
+              </span>
+            ) : (
+              <div className="links-container">
+                <Link className="nav-link" to="/login">
+                  登入
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       </header>
