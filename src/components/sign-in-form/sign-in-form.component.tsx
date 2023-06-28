@@ -70,9 +70,11 @@ const SignUpForm = () => {
           onChange={handleChange}
           value={password}
         />
-        <Button type="submit" variant="contained" size="small">
-          登入
-        </Button>
+        <div className="flex justify-center">
+          <Button type="submit" variant="contained" fullWidth size="medium">
+            登入
+          </Button>
+        </div>
       </form>
     </div>
   );
