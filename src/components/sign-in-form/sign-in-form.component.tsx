@@ -17,7 +17,7 @@ const defaultFormFields = {
   password: '',
 };
 
-const SignUpForm = () => {
+const SignInForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
   const { currentUser, setCurrentUser } = useContext(UserContext);
@@ -80,4 +80,4 @@ const SignUpForm = () => {
   );
 };
 
-export default SignUpForm;
+export default SignInForm;

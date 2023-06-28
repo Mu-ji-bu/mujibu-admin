@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from '../../libraries/utils/firebase.utils';
 import { UserCredential } from 'firebase/auth';
 import FormInput from '../form-input/form-input';
+import { Button } from '@mui/material';
 
 const defaultFormFields = {
   name: '',
@@ -10,7 +11,7 @@ const defaultFormFields = {
   confirmPassword: '',
 };
 
-const SignInForm = () => {
+const SignUpForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { name, email, password, confirmPassword } = formFields;
 
@@ -72,10 +73,14 @@ const SignInForm = () => {
           value={confirmPassword}
         />
 
-        <button type="submit">註冊</button>
+        <div className="flex justify-center">
+          <Button type="submit" variant="contained" fullWidth size="medium">
+            註冊
+          </Button>
+        </div>
       </form>
     </div>
   );
 };
 
-export default SignInForm;
+export default SignUpForm;
