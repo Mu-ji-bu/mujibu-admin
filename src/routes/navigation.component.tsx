@@ -31,11 +31,11 @@ const Navigation = () => {
               //   登出
               // </span>
               <div className="links-container">
-                <Button variant="outlined" color="secondary" className="ml-5">
-                  <Link className="nav-link visited:text-black" to="/login">
+                <Link className="nav-link visited:text-black" to="/login">
+                  <Button variant="outlined" color="secondary" className="ml-5">
                     登入
-                  </Link>
-                </Button>
+                  </Button>
+                </Link>
               </div>
             )}
           </div>
