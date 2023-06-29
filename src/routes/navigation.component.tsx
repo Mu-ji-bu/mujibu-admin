@@ -2,6 +2,7 @@ import { Outlet, Link } from 'react-router-dom';
 import { Component, useRef, useContext } from 'react';
 import { UserContext } from '../contexts/user.context';
 import { signOutUser } from '../libraries/utils/firebase.utils';
+import { Button } from '@mui/material';
 
 const Navigation = () => {
   const headerRef = useRef(null);
@@ -22,14 +23,19 @@ const Navigation = () => {
               </Link>
             </div>
             {currentUser ? (
-              <span className="" onClick={signOutHandler}>
+              <Button variant="outlined" onClick={signOutHandler}>
                 登出
-              </span>
+              </Button>
             ) : (
+              // <span className="" onClick={signOutHandler}>
+              //   登出
+              // </span>
               <div className="links-container">
-                <Link className="nav-link" to="/login">
-                  登入
-                </Link>
+                <Button variant="outlined" color="secondary" className="ml-5">
+                  <Link className="nav-link visited:text-black" to="/login">
+                    登入
+                  </Link>
+                </Button>
               </div>
             )}
           </div>

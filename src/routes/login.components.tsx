@@ -31,7 +31,7 @@ const LogIn = () => {
 
   return (
     <main className="flex flex-col items-center">
-      <h1>登入頁</h1>
+      <h1>管理員登入頁</h1>
       {/* <Button variant="contained" size="small" onClick={logGoogleUser}>
         Popup
       </Button>

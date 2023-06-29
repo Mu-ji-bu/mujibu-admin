@@ -29,3 +29,7 @@ img {
   width: 100%;
   height: auto;
 }
+
+.MuiDialog-container .MuiPaper-root {
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1)
+}

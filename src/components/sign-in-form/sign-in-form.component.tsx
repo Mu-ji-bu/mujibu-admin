@@ -57,7 +57,7 @@ const SignInForm = () => {
 
   return (
     <div>
-      <h2>使用 Email 和密碼進行登入</h2>
+      {/* <h2 className="flex justify-center">使用管理員信箱密碼進行登入</h2> */}
       <form onSubmit={handleSubmit}>
         <FormInput label="信箱" type="email" name="email" id="email" required onChange={handleChange} value={email} />
 
