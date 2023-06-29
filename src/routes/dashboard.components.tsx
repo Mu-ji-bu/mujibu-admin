@@ -135,8 +135,8 @@ const Dashboard = () => {
       team: filteredProjects[index].projectTeam?.teamName,
       startTime: dayjs(filteredProjects[index].startTime).format('YYYY-MM-DD'),
       endTime: dayjs(filteredProjects[index].endTime).format('YYYY-MM-DD'),
-      prize: filteredProjects[index].currentAmount,
-      goal: filteredProjects[index].goalAmount,
+      prize: 'NT$' + filteredProjects[index].currentAmount,
+      goal: 'NT$' + filteredProjects[index].goalAmount,
       backers: filteredProjects[index].projectBackers,
       description: filteredProjects[index].projectDescription,
     };
@@ -166,8 +166,8 @@ const Dashboard = () => {
                       <TableCell style={{ width: 250 }}>募資團隊</TableCell>
                       <TableCell style={{ width: 150 }}>開始時間</TableCell>
                       <TableCell style={{ width: 150 }}>截止時間</TableCell>
-                      <TableCell style={{ width: 100 }}>目前金額</TableCell>
-                      <TableCell style={{ width: 100 }}>目標金額</TableCell>
+                      <TableCell style={{ width: 150 }}>目前金額</TableCell>
+                      <TableCell style={{ width: 150 }}>目標金額</TableCell>
                       <TableCell style={{ width: 100 }}>募資人數</TableCell>
                     </TableRow>
                   </>
