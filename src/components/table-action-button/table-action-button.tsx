@@ -6,6 +6,7 @@ import {
   DialogContentText,
   DialogTitle,
   IconButton,
+  makeStyles,
   MenuItem,
   Select,
 } from '@mui/material';
@@ -16,6 +17,7 @@ const TableActionButton = (props: any) => {
   const { handleEdit, projectId, projectStatus, updateCount, setUpdateCount, isUpdating, setIsUpdating } = props;
   const [open, setOpen] = useState(false);
   const [selectedStatus, setSelectedStatus] = useState(projectStatus);
+  console.log('rerendering', isUpdating);
 
   const handleOpen = () => {
     setOpen(true);
@@ -34,6 +36,7 @@ const TableActionButton = (props: any) => {
   const handleStatusChange = (event: any) => {
     setSelectedStatus(event.target.value);
   };
+
   return (
     <>
       <IconButton color="primary" component="span" onClick={handleOpen}>
@@ -61,7 +64,14 @@ const TableActionButton = (props: any) => {
         </DialogActions>
       </Dialog>
       {isUpdating && (
-        <Dialog open={isUpdating}>
+        <Dialog
+          open={isUpdating}
+          BackdropProps={{ invisible: true }}
+          style={{
+            boxShadow: 'none',
+          }}
+          // BackdropProps={{ style: { backgroundColor: 'rgba(0, 0, 0, 0.5)', boxShadow: 'none' } }}
+        >
           <DialogTitle>募質部，慕質中。</DialogTitle>
           <DialogContent>
             <DialogContentText>資料更新中。</DialogContentText>
